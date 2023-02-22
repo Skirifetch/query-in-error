@@ -5,7 +5,7 @@ import plotly.express as px
 import sqlite3
 import openai
 import os
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 from datetime import datetime
 import altair as alt
 from st_aggrid import AgGrid
