@@ -21,9 +21,9 @@ import sys
 import pickle
 import cloudpickle
 #import pages.premium as premium
-from streamlit_extras.switch_page_button import switch_page
+#from streamlit_extras.switch_page_button import switch_page
 import json
-import fcntl
+#import fcntl
 import tempfile
 import csv
 import re
@@ -187,34 +187,7 @@ def generate_promptini(sqlite_file_path, table_name=None):
 api_key_file = "api_key.json"
 validated = False
 
-def test_api_key():
-    try:
-        api_call_made = joblib.load("api_call_made.joblib")
-    except:
-        api_call_made = False
 
-    if not api_call_made:
-        with open("api_call_made.lock", "w") as lock:
-            try:
-                fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-                completions = openai.Completion.create(
-                    model="text-ada-001",
-                    prompt="write affirmative ",
-                    temperature=0,
-                    max_tokens=40,
-                    top_p=1.0,
-                    frequency_penalty=0.0,
-                    presence_penalty=0.0,
-                    stop= ["."]
-                )
-                valid_response = completions.choices[0].text.lstrip()
-                joblib.dump(True, "api_call_made.joblib")
-                #print (valid_response)
-                return valid_response
-            finally:
-                fcntl.flock(lock, fcntl.LOCK_UN)
-    else:
-        return None
 
 if not os.path.exists(api_key_file):
     api_key = None
