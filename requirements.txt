@@ -4,7 +4,7 @@ plotly
 openai
 python-dotenv
 altair
-st-aggrid
+streamlit-aggrid
 numpy
 joblib
 cloudpickle
