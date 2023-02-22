@@ -9,6 +9,3 @@ numpy
 joblib
 cloudpickle
 streamlit-extras
-json
-tempfile
-csv
